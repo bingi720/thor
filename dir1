@@ -1,0 +1,9 @@
+output_variable(){
+    local key="$1"
+    local variables="$2"
+    for var in $variables; do
+        if [ -n "${!var:-}" ]; then
+            echo "$key=${!var}"
+            break
+        fi
+    done
